@@ -1,5 +1,3 @@
-To streamline your setup, here is the complete, all-in-one **README.md** content. You can copy this directly into your repository to provide clear instructions on cloning, permissions, and usage.
-
 ---
 
 # URL Contextual Filter 🎯
