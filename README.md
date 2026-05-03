@@ -1,4 +1,6 @@
 </br>
+<img width="1024" height="484" alt="image" src="https://github.com/user-attachments/assets/438221d6-f37e-4023-bf72-a4b47fe157f1" />
+
 </br>
 
 > [!TIP]
@@ -22,10 +24,6 @@
 
 > [!CAUTION]
 > **Use Link Categorizer only on assets you own or have explicit permission to test. This tool is designed for security researchers and bug bounty hunters to streamline reconnaissance. The authors are not responsible for any misuse or illegal activities.**## Link Categorizer
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/39d6e99e-8281-4f48-811b-14478f25be99" alt="banner" width="600">
-</p>
 
 > [!NOTE]
 > **Link Categorizer** is a high-performance bash-based intelligence engine designed to filter and categorize massive URL lists into specific vulnerability classes using professional-grade pattern matching.
