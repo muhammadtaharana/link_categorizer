@@ -1,61 +1,126 @@
----
+</br>
+</br>
 
-# URL Contextual Filter 🎯
+> [!TIP]
+> **Optimization Tip:**
+>
+> - Ensure your input file contains full URLs (including schemes and parameters) for the best results.
+> - Combine this with tools like `gau` or `waybackurls` to feed the engine a comprehensive dataset.
+> - Check the `hits` count in the terminal to see which vulnerability classes are most prevalent in your target.
 
-A high-performance Bash script designed for security researchers and bug bounty hunters to parse massive URL lists and categorize them into potential vulnerability classes.
+</br>
+</br>
 
-## 🚀 Quick Start
+### TO-DO
 
-### 1. Installation & Setup
-To get started, clone the repository and set the appropriate execution permissions:[cite: 1, 2]
+* [ ] Add support for multi-threading to handle million+ URL lists.
+* [ ] Integrate custom regex configuration via external YAML file.
+* [ ] Add automated header checking for identified sensitive paths.
 
+</br>
+</br>
+
+> [!CAUTION]
+> **Use Link Categorizer only on assets you own or have explicit permission to test. This tool is designed for security researchers and bug bounty hunters to streamline reconnaissance. The authors are not responsible for any misuse or illegal activities.**## Link Categorizer
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/39d6e99e-8281-4f48-811b-14478f25be99" alt="banner" width="600">
+</p>
+
+> [!NOTE]
+> **Link Categorizer** is a high-performance bash-based intelligence engine designed to filter and categorize massive URL lists into specific vulnerability classes using professional-grade pattern matching.
+
+</br>
+</br>
+
+### Features
+
+* **Contextual Filtering:** Moves beyond simple keyword matching to use specific URL patterns, parameters, and sensitive paths[cite: 2].
+* **Noise Reduction:** Automatically filters out static assets like images (`.jpg`, `.png`), fonts (`.woff`), and stylesheets (`.css`) to focus on actionable targets[cite: 2].
+* **Vulnerability-Centric:** Pre-configured logic for SQLi, XSS, SSRF, IDOR, JWT leaks, and more[cite: 2].
+* **Intelligence Layer:** High-precision regex for identifying state-changing paths and sensitive API endpoints[cite: 2].
+
+</br>
+</br>
+
+### Installation
+
+Clone the repository and ensure the script has execution permissions:
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/link_categorizet.git
+git clone [https://github.com/muhammadtaharana/link_categorizer](https://github.com/muhammadtaharana/link_categorizer)
 cd link_categorizer
-
-# Grant execution permissions
 chmod +x link_categorizer.sh
-```[cite: 1, 2]
+```
 
-### 2. Usage
-Run the script by providing a text file containing your collected URLs (e.g., from `gau`, `waybackurls`, or `subfinder`):[cite: 1, 2]
+</br>
+</br>
 
+### Vulnerability Categories
+
+The engine automatically sorts hits into the following specialized modules:
+
+| Category | Target Patterns |
+| :--- | :--- |
+| **SQLi** | Parameters like `id`, `query`, `select`, `order`, etc.[cite: 2] |
+| **XSS** | Reflection points such as `search`, `msg`, `callback`, and `email`[cite: 2] |
+| **SSRF** | URL/Domain handlers like `dest`, `proxy`, `uri`, and `site`[cite: 2] |
+| **Auth/OAuth** | Critical paths like `/callback`, `/token`, and `/mfa`[cite: 2] |
+| **JWT Leaks** | Scans for `ey...` encoded tokens within URL strings[cite: 2] |
+| **Access Control** | IDOR-prone paths including `/v1/user/[id]` patterns[cite: 2] |
+
+</br>
+</br>
+
+### Usage Examples
+
+- ###### Categorize a file of URLs
 ```bash
-./link_categorizer.sh your_urls.txt
-```[cite: 1, 2]
+./link_categorizer.sh urls.txt
+```
 
----
-
-## 📁 Output Structure
-After execution, the script creates a directory named `extreme_categorized_urls/`. Inside, you will find targeted `.txt` files for various vulnerability classes:[cite: 1, 2]
-
-*   **`sqli.txt`**: SQL Injection entry points (id, query, select, etc.).[cite: 1, 2]
-*   **`xss.txt`**: Reflected parameters (search, msg, callback, etc.).[cite: 1, 2]
-*   **`ssrf.txt`**: External resource fetching (url, proxy, site, etc.).[cite: 1, 2]
-*   **`path_traversal.txt`**: File handling parameters (file, root, view, etc.).[cite: 1, 2]
-*   **`auth_oauth.txt`**: Authentication and OAuth flows (/login, /token, etc.).[cite: 1, 2]
-*   **`access_control.txt`**: API endpoints and IDOR targets.[cite: 1, 2]
-*   **`jwt_leaks.txt`**: Potential JWT tokens discovered in URL strings.[cite: 1, 2]
-
----
-
-## 🧠 Intelligence Layer
-The script utilizes a professional-grade pattern engine to ensure high-quality results:[cite: 2]
-
-*   **Noise Reduction**: Automatically filters out static assets such as `.jpg`, `.png`, `.css`, `.woff`, and `.svg` to focus on dynamic targets.[cite: 1, 2]
-*   **Context-Aware Regex**: Focuses on parameter keys and sensitive API paths rather than simple string matching to minimize "false positives."[cite: 1, 2]
-*   **Automated Cleanup**: If a category yields zero hits, the script automatically removes the empty file to keep your results clean.[cite: 1]
-
----
-
-## 🔧 Customization
-You can easily extend the script to include new vulnerability types by adding a line to the "Intelligence Layer" section in `filter.sh`:[cite: 1, 2]
-
+- ###### Process output from other tools (e.g., waybackurls)
 ```bash
-categorize "new_vulnerability" "regex_pattern_here"
-```[cite: 1, 2]
+waybackurls example.com > urls.txt && ./link_categorizer.sh urls.txt
+```
 
----
+</br>
+</br>
 
-> **⚠️ Disclaimer:** This tool is intended for ethical security research and authorized penetration testing only. Always ensure you have permission before testing any target.
+### Output Structure
+
+The tool creates a directory named `extreme_categorized_urls` and populates it with individual files for each category[cite: 2]:
+
+```text
+extreme_categorized_urls/
+├── sqli.txt
+├── xss.txt
+├── ssrf.txt
+├── jwt_leaks.txt
+└── ...
+```
+
+</br>
+</br>
+
+> [!TIP]
+> **Optimization Tip:**
+>
+> - Ensure your input file contains full URLs (including schemes and parameters) for the best results.
+> - Combine this with tools like `gau` or `waybackurls` to feed the engine a comprehensive dataset.
+> - Check the `hits` count in the terminal to see which vulnerability classes are most prevalent in your target.
+
+</br>
+</br>
+
+### TO-DO
+
+* [ ] Add support for multi-threading to handle million+ URL lists.
+* [ ] Integrate custom regex configuration via external YAML file.
+* [ ] Add automated header checking for identified sensitive paths.
+
+</br>
+</br>
+
+> [!CAUTION]
+> **Use Link Categorizer only on assets you own or have explicit permission to test. This tool is designed for security researchers and bug bounty hunters to streamline reconnaissance. The authors are not responsible for any misuse or illegal activities.**[cite: 2]
+```
