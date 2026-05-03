@@ -11,18 +11,18 @@ To get started, clone the repository and set the appropriate execution permissio
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/url-contextual-filter.git
-cd url-contextual-filter
+git clone https://github.com/your-username/link_categorizet.git
+cd link_categorizer
 
 # Grant execution permissions
-chmod +x filter.sh
+chmod +x link_categorizer.sh
 ```[cite: 1, 2]
 
 ### 2. Usage
 Run the script by providing a text file containing your collected URLs (e.g., from `gau`, `waybackurls`, or `subfinder`):[cite: 1, 2]
 
 ```bash
-./filter.sh your_urls.txt
+./link_categorizer.sh your_urls.txt
 ```[cite: 1, 2]
 
 ---
