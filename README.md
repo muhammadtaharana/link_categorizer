@@ -1,4 +1,4 @@
-# Advanced Link Categorizer v2.0
+<img width="1024" height="484" alt="image" src="https://github.com/user-attachments/assets/d1b32de7-74e5-48b4-9d60-aa71b3928f52" />
 
 A professional-grade URL categorization tool for security assessment, bug bounty hunting, and penetration testing.
 
