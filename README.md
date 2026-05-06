@@ -303,5 +303,4 @@ For detailed usage and advanced examples, see [USAGE.md](USAGE.md)
 </br>
 
 > [!CAUTION]
-> **Use Link Categorizer only on assets you own or have explicit permission to test. This tool is designed for security researchers and bug bounty hunters to streamline reconnaissance. The authors are not responsible for any misuse or illegal activities.**[cite: 2]
-```
+> **Use Link Categorizer only on assets you own or have explicit permission to test. This tool is designed for security researchers and bug bounty hunters to streamline reconnaissance. The authors are not responsible for any misuse or illegal activities.** 
