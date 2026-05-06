@@ -1,7 +1,7 @@
-# Advanced Link Categorizer v2.0
+# Advanced Link Categorizer v2.1
 
 Ultra-fast URL categorization tool for security assessment, bug bounty hunting, and penetration testing.
-
+<img width="1024" height="484" alt="image" src="https://github.com/user-attachments/assets/d1b32de7-74e5-48b4-9d60-aa71b3928f52" />
 > [!NOTE]
 > **Version 2.1** - NEW: Awk-based single-pass categorizer processes 310K URLs in 33 seconds. 18 vulnerability categories optimized for blackhat BBP reconnaissance.
 
