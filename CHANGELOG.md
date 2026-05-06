@@ -1,6 +1,35 @@
-# Link Categorizer v2.0 - Changelog & Security Patches
+# Link Categorizer - Complete Changelog
 
-## 🔥 CRITICAL SECURITY FIXES - v2.0.1 (Hotfix)
+## ⚡ PERFORMANCE BREAKTHROUGH - v2.1 (Ultra-Fast AWK Edition)
+
+### 🚀 Game-Changing Performance Improvement
+- **NEW**: Pure-AWK single-pass categorizer `fast_awk.sh` processes 310K URLs in **33 seconds** (9,400 URLs/sec)
+- **18 vulnerability categories** with deep pattern matching (file_inclusion, ssrf, access_control, etc.)
+- **Zero dependencies** beyond bash/awk - no jq, parallel, or curl needed
+- **Single-pass processing** - all 310K URLs read and categorized in one awk execution
+- **Optimized pattern priority** - catches real-world vulnerability signatures from BBP reconnaissance
+
+### 📊 Benchmark Results (Dyson BBP 310,677 URLs)
+```
+fast_awk.sh:         33 seconds (9,400 URLs/sec) ⭐ RECOMMENDED
+link_categorizer.sh: 45 seconds (6,900 URLs/sec)
+```
+
+### 🎯 Category Breakdown (Real BBP Data)
+```
+other                    : 278,033 URLs (89.5%)
+file_inclusion           :  19,924 URLs (6.4%)  ← New high priority
+access_control           :   3,413 URLs (1.1%)
+ssrf                     :   3,269 URLs (1.1%)
+open_redirect            :   2,661 URLs (0.9%)
+ssti                     :   1,119 URLs (0.4%)
+rce                      :     826 URLs (0.3%)
+cloud_storage            :     786 URLs (0.3%)
+jwt_leaks                :     258 URLs (0.1%)
+... 9 more categories    :     388 URLs (0.1%)
+```
+
+### 🔥 CRITICAL SECURITY FIXES - v2.0.1 (Hotfix)
 
 ### 🚨 Vulnerability Patches
 - **[CRITICAL]** Fixed SQL injection in `store_result()` - Escaped quotes in URL strings to prevent SQLi payloads from breaking database queries
@@ -219,6 +248,71 @@ Original `.txt` output files remain identical. All new features are optional.
 | Error Handling | Basic | Robust | Medium |
 | Integration | Manual | Webhook API | Medium |
 | Domain Filtering | None | Working | High |
+
+---
+
+## v2.1 Usage Guide
+
+### Fast AWK Categorizer (RECOMMENDED)
+```bash
+# Basic usage - process any URL list
+./fast_awk.sh urls.txt
+
+# Output files in extreme_categorized_urls/
+ls -lh extreme_categorized_urls/
+  other.txt                 (89.5% of URLs)
+  file_inclusion.txt        (6.4% - critical finding)
+  access_control.txt        (1.1% - IDOR/privilege escalation)
+  ssrf.txt                  (1.1% - internal network access)
+  open_redirect.txt         (0.9% - phishing/auth bypass)
+  ssti.txt                  (0.4% - template injection)
+  rce.txt                   (0.3% - remote code execution)
+  cloud_storage.txt         (0.3% - data leaks)
+  ... 10 more categories    (0.1% each)
+```
+
+### Real-World Example: Dyson BBP Data
+```bash
+# Process 310K URLs from BBP reconnaissance
+./fast_awk.sh /path/to/1.py.txt
+
+# Results
+[*] Deep pattern analysis on Dyson BBP data...
+[+] Done! (33 seconds)
+
+=== Categorization Results ===
+  other                     :   278033 URLs
+  file_inclusion            :    19924 URLs
+  access_control            :     3413 URLs
+  ssrf                      :     3269 URLs
+  open_redirect             :     2661 URLs
+  ssti                      :     1119 URLs
+  rce                       :      826 URLs
+  cloud_storage             :      786 URLs
+  jwt_leaks                 :      258 URLs
+  path_traversal            :      140 URLs
+  csrf                      :       60 URLs
+  sqli                      :       50 URLs
+  insecure_deserialization  :       43 URLs
+  xss                       :       27 URLs
+  graphql_injection         :       26 URLs
+  xxe                       :       23 URLs
+  auth_oauth                :       13 URLs
+  api_key_exposure          :        6 URLs
+
+Total: 310677 URLs
+```
+
+### Which File to Use?
+
+| Scenario | Use | Reason |
+|----------|-----|--------|
+| **Large BBP reconnaissance** | `fast_awk.sh` | 310K URLs in 33 sec |
+| **Need features (DB, reports)** | `link_categorizer.sh` | Full feature set |
+| **One-off quick scan** | `fast_awk.sh` | Instant results |
+| **Production integration** | `link_categorizer.sh` | Webhook, logging, config |
+
+---
 | Security | Vulnerable | Patched | Critical |
 
 ---

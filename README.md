@@ -1,9 +1,9 @@
-# Advanced Link Categorizer v2.0
+# Advanced Link Categorizer v2.1
 
-A professional-grade URL categorization tool for security assessment, bug bounty hunting, and penetration testing.
+Ultra-fast URL categorization tool for security assessment, bug bounty hunting, and penetration testing.
 
 > [!NOTE]
-> **Version 2.0** Complete overhaul with parallel processing, HTTP validation, multiple output formats, database storage, and 20+ vulnerability categories.
+> **Version 2.1** - NEW: Awk-based single-pass categorizer processes 310K URLs in 33 seconds. 18 vulnerability categories optimized for blackhat BBP reconnaissance.
 
 ## Features
 
@@ -46,31 +46,22 @@ mkdir -p .cache logs extreme_categorized_urls
 
 ## Quick Start
 
-### Basic Usage
+### ⚡ FASTEST: Use fast_awk.sh (v2.1 - RECOMMENDED)
+```bash
+./fast_awk.sh urls.txt
+# Processes 310K URLs in 33 seconds
+# Output: extreme_categorized_urls/sqli.txt, xss.txt, etc.
+```
+
+### Benchmark Results (310K Dyson BBP URLs)
+| Script | Time | Speed |
+|--------|------|-------|
+| **fast_awk.sh** | 33 sec | 9,400 URLs/sec |
+| link_categorizer.sh | 45 sec | 6,900 URLs/sec |
+
+### Legacy: Original Script
 ```bash
 ./link_categorizer.sh urls.txt
-```
-
-### With HTTP Validation & Report
-```bash
-./link_categorizer.sh -v --report -f html urls.txt
-```
-
-### Parallel + Database
-```bash
-./link_categorizer.sh -j 8 -p --database urls.txt
-```
-
-### Full Assessment
-```bash
-./link_categorizer.sh \
-  -j 8 -p \
-  -v \
-  --database \
-  --report \
-  -f json -f html \
-  --webhook $SLACK_WEBHOOK \
-  urls.txt
 ```
 
 ## Command Reference

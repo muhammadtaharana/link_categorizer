@@ -1,1 +1,19 @@
 [ERROR] No input file specified. Use -h for help.
+[2026-05-05 07:35:01] [INFO] Cache directory: /mnt/c/Users/User/Desktop/link_categorizer/.cache
+[2026-05-05 07:35:01] [INFO] Loading configuration from /mnt/c/Users/User/Desktop/link_categorizer/config.json
+[ERROR] Input file not found: mnt/c/Users/User/Desktop/TARGETS/Dyson BBP/1.py.txt
+[2026-05-05 07:35:42] [INFO] Cache directory: /mnt/c/Users/User/Desktop/link_categorizer/.cache
+[2026-05-05 07:35:42] [INFO] Loading configuration from /mnt/c/Users/User/Desktop/link_categorizer/config.json
+[2026-05-05 07:35:42] [INFO] Starting categorization of: /mnt/c/Users/User/Desktop/TARGETS/Dyson BBP/1.py.txt
+[2026-05-05 07:35:42] [INFO] Total URLs to process: 310676
+[2026-05-05 07:35:42] [INFO] Processing URLs sequentially
+[2026-05-05 07:38:50] [INFO] Cache directory: /mnt/c/Users/User/Desktop/link_categorizer/.cache
+[2026-05-05 07:38:50] [INFO] Loading configuration from /mnt/c/Users/User/Desktop/link_categorizer/config.json
+[2026-05-05 07:38:50] [INFO] Starting categorization of: /mnt/c/Users/User/Desktop/TARGETS/Dyson BBP/1.py.txt
+[2026-05-05 07:38:51] [INFO] Total URLs to process: 310676
+[2026-05-05 07:38:51] [INFO] Processing URLs sequentially
+[2026-05-05 07:39:04] [INFO] Cache directory: /mnt/c/Users/User/Desktop/link_categorizer/.cache
+[2026-05-05 07:39:04] [INFO] Loading configuration from /mnt/c/Users/User/Desktop/link_categorizer/config.json
+[2026-05-05 07:39:04] [INFO] Starting categorization of: /mnt/c/Users/User/Desktop/TARGETS/Dyson BBP/1.py.txt
+[2026-05-05 07:39:06] [INFO] Total URLs to process: 310676
+[2026-05-05 07:39:06] [INFO] Processing URLs sequentially
