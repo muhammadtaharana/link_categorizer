@@ -1,4 +1,4 @@
-# Advanced Link Categorizer v2.1
+# Advanced Link Categorizer v2.0
 
 Ultra-fast URL categorization tool for security assessment, bug bounty hunting, and penetration testing.
 
