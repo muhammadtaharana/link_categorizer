@@ -35,7 +35,7 @@ brew install parallel sqlite3 jq curl
 ### Quick Setup
 ```bash
 # Download and setup
-chmod +x link_categorizer.sh setup.sh
+chmod +x link_categorizer.sh setup.sh fast_awk.sh
 ./setup.sh
 
 # Or manually
